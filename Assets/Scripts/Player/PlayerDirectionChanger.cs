@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerChangeDirection : MonoBehaviour
+public class PlayerDirectionChanger : MonoBehaviour
 {
     private float _newPlayerScaleX;
 

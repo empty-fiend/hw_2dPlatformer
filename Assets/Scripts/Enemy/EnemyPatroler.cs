@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatroler : MonoBehaviour
 {
     [SerializeField] private float _terretoryToPatrol;
     [SerializeField] private float _speed;
