@@ -2,9 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class HealthbarChanger : MonoBehaviour
+public class HealthbarDisplayer : MonoBehaviour
 {
-    [SerializeField] private float _healthChangeAmount;
     [SerializeField] private float _healthbarValueChangeSpeed;
 
     private Slider _healthbar;
@@ -25,15 +24,5 @@ public class HealthbarChanger : MonoBehaviour
         {
             _healthbar.value = Mathf.MoveTowards(_healthbar.value, _playerHealth.HealthAmount, _healthbarValueChangeSpeed * Time.deltaTime);
         }
-    }
-
-    public void IncreaseHealth()
-    {
-        _playerHealth.HeathIncrease(_healthChangeAmount);
-    }
-
-    public void DecreaseHealth()
-    {
-        _playerHealth.HealthDecrease(_healthChangeAmount);
     }
 }
