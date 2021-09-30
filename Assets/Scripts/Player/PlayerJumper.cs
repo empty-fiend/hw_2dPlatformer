@@ -22,7 +22,7 @@ public class PlayerJumper : MonoBehaviour
     {
         if (Input.GetKey(_playerButtons.Jump) && _playerGroundChecker.IsGrounded)
         {
-            _rigidbody2D.AddForce(new Vector2(transform.position.x, _jumpForce), ForceMode2D.Impulse);
+            _rigidbody2D.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
         }
     }
 }

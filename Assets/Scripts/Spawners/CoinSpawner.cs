@@ -14,7 +14,7 @@ public class CoinSpawner : MonoBehaviour
         
         for (int i = 0; i < _coinCount; i++)
         {
-            Instantiate(_template, new Vector3(_newSpawnPosition, transform.position.y), Quaternion.identity);
+            Instantiate(_template, new Vector3(_newSpawnPosition, transform.position.y), Quaternion.identity, transform);
             _newSpawnPosition += _distanceBetweenCoins;
         }
     }
