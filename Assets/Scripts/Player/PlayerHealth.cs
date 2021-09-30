@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
         _healthAmount = _maxHealthAmount;
     }
 
-    public void HealthDecrease (float damageAmount)
+    public void DecreaseHealth (float damageAmount)
     {
         if (_healthAmount > damageAmount)
         {
@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void HeathIncrease (float healAmount)
+    public void IncreaseHealth (float healAmount)
     {
         if (_healthAmount + healAmount > _maxHealthAmount)
             _healthAmount = _maxHealthAmount;

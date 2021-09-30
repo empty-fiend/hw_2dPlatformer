@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealthChanger : MonoBehaviour
+public class ButtonPlayerHealAndDamageDealer : MonoBehaviour
 {
     [SerializeField] private float _healthChangeAmount;
 
@@ -13,11 +13,11 @@ public class PlayerHealthChanger : MonoBehaviour
 
     public void IncreaseHealth()
     {
-        _playerHealth.HeathIncrease(_healthChangeAmount);
+        _playerHealth.IncreaseHealth(_healthChangeAmount);
     }
 
     public void DecreaseHealth()
     {
-        _playerHealth.HealthDecrease(_healthChangeAmount);
+        _playerHealth.DecreaseHealth(_healthChangeAmount);
     }
 }
