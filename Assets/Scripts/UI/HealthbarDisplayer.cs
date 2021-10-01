@@ -1,28 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class HealthbarDisplayer : MonoBehaviour
 {
-    [SerializeField] private float _healthbarValueChangeSpeed;
+    [SerializeField] private float _changeSpeed;
 
     private Slider _healthbar;
-    private PlayerHealth _playerHealth;
+    private Player _player;
 
-    private void Start()
+    private void Awake()
     {
-        FindObjectOfType<Player>().TryGetComponent<PlayerHealth>(out _playerHealth);
+        _player = FindObjectOfType<Player>();
         _healthbar = GetComponent<Slider>();
-
-        _healthbar.maxValue = _playerHealth.HealthAmount;
-        _healthbar.value = _healthbar.maxValue;
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_playerHealth.HealthAmount != _healthbar.value)
+        _player.HealthChanged += OnHealthChanged;
+    }
+
+    private void OnDisable()
+    {
+        _player.HealthChanged -= OnHealthChanged;
+    }
+
+    private void OnHealthChanged(float value)
+    {
+        if (_healthbar.maxValue < value)
         {
-            _healthbar.value = Mathf.MoveTowards(_healthbar.value, _playerHealth.HealthAmount, _healthbarValueChangeSpeed * Time.deltaTime);
+            _healthbar.maxValue = value;
+        }
+
+        if (_healthbar.value != value)
+        {
+            StartCoroutine(Filling(value));
+        }
+    }
+
+    private IEnumerator Filling(float endValue)
+    {
+        while (_healthbar.value != endValue)
+        {
+            _healthbar.value = Mathf.MoveTowards(_healthbar.value, endValue, _changeSpeed * Time.deltaTime);
+            yield return null;
         }
     }
 }

@@ -898,8 +898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd47455d5aaef414c81c1e47769f7c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthChangeAmount: 15
-  _healthbarValueChangeSpeed: 25
+  _changeSpeed: 25
 --- !u!1 &1651828657
 GameObject:
   m_ObjectHideFlags: 0
