@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
 
     public float HealthAmount => _healthAmount;
 
-
     private void Start()
     {
         _healthAmount = _maxHealthAmount;
